@@ -15,6 +15,6 @@ My Notes:
 
 Translation:
 
--Acutally we can translate using my modded version in my Specif-Games repositorie
+-Acutally we can translate LB Steam Ver. using my modded version in my Specif-Games repositorie
 
 -The FONT.DAT contains one file for font family and size, unk format, srry
