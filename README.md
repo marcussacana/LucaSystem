@@ -12,3 +12,7 @@ My Notes:
 	Tried open CZ1 and CZ3 using textures tools, failed, Maybe is compressed.
 	
 	The PAK can contains the file name or not, maybe 2 files with same name
+
+Translation:
+-Acutally we can translate using my modded version in my Specif-Games repositorie
+-The FONT.DAT contains one file for font family and size, unk format, srry
