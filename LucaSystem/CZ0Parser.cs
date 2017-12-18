@@ -21,6 +21,8 @@ namespace LucaSystem {
             if (Header.Signature != "CZ0\x0")
                 throw new BadImageFormatException();
 
+            Reader.Seek(Header.HeaderLength, SeekOrigin.Begin);
+
             Bitmap Picture = new Bitmap(Header.Width, Header.Heigth, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
 
             for (int y = 0; y < Header.Heigth; y++)
@@ -36,20 +38,18 @@ namespace LucaSystem {
         }
 
 
-        public struct CZ0Header {
-            [FString(Length = 4)]
-            public string Signature;
-            public uint Unk1;
-            public ushort Width;
-            public ushort Heigth;
-            public uint Unk2;
-            public ulong Unk3;
-            public ulong Unk4;
-            public uint Unk5;
-        }
 
-        public struct Pixel {
-            public byte R, G, B, A;
-        }
+    }
+    public struct CZ0Header {
+        [FString(Length = 4)]
+        public string Signature;
+        public uint HeaderLength;
+        public ushort Width;
+        public ushort Heigth;
+        //dynamic length
+    }
+
+    public struct Pixel {
+        public byte R, G, B, A;
     }
 }
