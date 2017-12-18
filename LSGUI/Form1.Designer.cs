@@ -27,6 +27,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pAKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.extractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cZToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cZ1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -34,9 +36,10 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pAKToolStripMenuItem});
+            this.pAKToolStripMenuItem,
+            this.cZToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(96, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
             // 
             // pAKToolStripMenuItem
             // 
@@ -49,9 +52,24 @@
             // extractToolStripMenuItem
             // 
             this.extractToolStripMenuItem.Name = "extractToolStripMenuItem";
-            this.extractToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.extractToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.extractToolStripMenuItem.Text = "Extract";
             this.extractToolStripMenuItem.Click += new System.EventHandler(this.extractToolStripMenuItem_Click);
+            // 
+            // cZToolStripMenuItem
+            // 
+            this.cZToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cZ1ToolStripMenuItem});
+            this.cZToolStripMenuItem.Name = "cZToolStripMenuItem";
+            this.cZToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cZToolStripMenuItem.Text = "CZ";
+            // 
+            // cZ1ToolStripMenuItem
+            // 
+            this.cZ1ToolStripMenuItem.Name = "cZ1ToolStripMenuItem";
+            this.cZ1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cZ1ToolStripMenuItem.Text = "CZ0";
+            this.cZ1ToolStripMenuItem.Click += new System.EventHandler(this.cZ1ToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
@@ -79,6 +97,8 @@
         private System.Windows.Forms.ToolStripMenuItem pAKToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem extractToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem cZToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cZ1ToolStripMenuItem;
     }
 }
 

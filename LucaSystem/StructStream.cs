@@ -9,7 +9,7 @@ using System.Reflection;
 /// </summary>
 namespace AdvancedBinary {
 
-    enum StringStyle {
+    public enum StringStyle {
         /// <summary>
         /// C-Style String (null terminated)
         /// </summary>
@@ -82,7 +82,7 @@ namespace AdvancedBinary {
     /// Struct Field Type (required only to sub structs)
     /// </summary>
     public class StructField : Attribute { }
-    internal class Const {
+    public class Const {
         //Types
         public const string INT8 = "System.SByte";
         public const string UINT8 = "System.Byte";
@@ -231,9 +231,10 @@ namespace AdvancedBinary {
                     return true;
             return false;
         }
-        public static void ReadStruct<T>(byte[] Array, ref T Struct, bool IsBigEnddian = false, Encoding Encoding = null) {
+        public static void ReadStruct<T>(byte[] Array, ref T Struct, bool IsBigEnddian = false, Encoding Encoding = null, long BaseOffset = 0) {
             MemoryStream Stream = new MemoryStream(Array);
             StructReader Reader = new StructReader(Stream, IsBigEnddian, Encoding);
+            Reader.Seek(BaseOffset, SeekOrigin.Begin);
             Reader.ReadStruct(ref Struct);
             Reader.Close();
             Stream?.Close();
@@ -261,7 +262,7 @@ namespace AdvancedBinary {
         }
     }
 
-    class StructWriter : BinaryWriter {
+    public class StructWriter : BinaryWriter {
 
         internal bool BigEndian = false;
         internal Encoding Encoding;
