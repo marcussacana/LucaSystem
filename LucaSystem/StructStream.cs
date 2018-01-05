@@ -31,7 +31,7 @@ namespace AdvancedBinary {
     /// <param name="Stream">Stream Instance</param>
     /// <param name="FromReader">Determine if the method is invoked from the StructReader or StructWriter</param>
     /// <param name="StructInstance">Struct instance reference</param>
-    /// <return>Struct Instance</return>
+    /// <return>New Struct Instance</return>
     public delegate dynamic FieldInvoke(Stream Stream, bool FromReader, dynamic StructInstance);
 
     /// <summary>
@@ -267,13 +267,13 @@ namespace AdvancedBinary {
         internal bool BigEndian = false;
         internal Encoding Encoding;
 
-        public StructWriter(Stream Input, bool BigEndian = false, Encoding Encoding = null) : base(Input) {
+        public StructWriter(Stream Output, bool BigEndian = false, Encoding Encoding = null) : base(Output) {
             if (Encoding == null)
                 Encoding = Encoding.UTF8;
             this.BigEndian = BigEndian;
             this.Encoding = Encoding;
         }
-        public StructWriter(string Input, bool BigEndian = false, Encoding Encoding = null) : base(new StreamWriter(Input).BaseStream) {
+        public StructWriter(string OutputFile, bool BigEndian = false, Encoding Encoding = null) : base(new StreamWriter(OutputFile).BaseStream) {
             if (Encoding == null)
                 Encoding = Encoding.UTF8;
             this.BigEndian = BigEndian;
@@ -291,7 +291,7 @@ namespace AdvancedBinary {
             FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
             foreach (FieldInfo field in fields) {
                 if (HasAttribute(field, Const.IGNORE))
-                    break;
+                    continue;
                 dynamic Value = field.GetValue(Instance);
                 string Type = field.FieldType.ToString();
                 if (!Type.EndsWith("[]")) {
